@@ -29,6 +29,7 @@ import org.jraf.klibnotion.internal.model.property.SelectOptionImpl
 import org.jraf.klibnotion.internal.model.property.value.CheckboxPropertyValueImpl
 import org.jraf.klibnotion.internal.model.property.value.DatePropertyValueImpl
 import org.jraf.klibnotion.internal.model.property.value.EmailPropertyValueImpl
+import org.jraf.klibnotion.internal.model.property.value.FilesPropertyValueImpl
 import org.jraf.klibnotion.internal.model.property.value.MultiSelectPropertyValueImpl
 import org.jraf.klibnotion.internal.model.property.value.NumberPropertyValueImpl
 import org.jraf.klibnotion.internal.model.property.value.PeoplePropertyValueImpl
@@ -42,6 +43,7 @@ import org.jraf.klibnotion.internal.model.user.PersonImpl
 import org.jraf.klibnotion.model.base.UuidString
 import org.jraf.klibnotion.model.color.Color
 import org.jraf.klibnotion.model.date.DateOrDateRange
+import org.jraf.klibnotion.model.file.File
 import org.jraf.klibnotion.model.richtext.Annotations
 import org.jraf.klibnotion.model.richtext.RichTextList
 import kotlin.jvm.JvmOverloads
@@ -179,6 +181,14 @@ class PropertyValueList {
             id = idOrName,
             name = idOrName,
             value = phoneNumber,
+        )
+    )
+
+    fun files(idOrName: String, files: List<File>): PropertyValueList = add(
+        FilesPropertyValueImpl(
+            id = idOrName,
+            name = idOrName,
+            value = files,
         )
     )
 }
